@@ -1,0 +1,100 @@
+Master
+- 
+
+
+
+@@@ Prepare VM-s -----------------------------------------
+
+@@Prepare VM Master (Jenkins)
+@Preapare VM
+-- Set IP Addpress
+192.168.56.10
+
+-- Set Hostname
+jenkins-master
+
+@Jenkins
+-- Install Java
+yum install java-1.8.0-openjdk-devel -y
+
+-- Install Jenkins
+curl --silent --location http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo | sudo tee /etc/yum.repos.d/jenkins.repo
+rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+yum install jenkins -y
+
+-- Start Jenkins
+systemctl start jenkins
+systemctl status jenkins
+systemctl enable jenkins
+
+-- Check Jenkins
+ss -tpln | grep java
+(Hint: Port number: 8080)
+
+-- Set firewall
+firewall-cmd --add-port=8080/tcp --permanent
+firewall-cmd --reload
+
+-- Start browser
+192.168.56.10:8080
+cat password
+install plugins
+set admin: admin / 000000
+
+@Shellcheck
+-- Instal Shellcheck
+yum -y install epel-release
+yum install ShellCheck -y
+
+
+
+
+
+#######################################################################################################################
+-------> SLAVE VM <-----------------
+
+@@Create VM Jenkins Agent ---------------------------------
+
+@Slave -----------------------------------------------
+-- Install Java
+yum install java-1.8.0-openjdk-devel -y
+
+-- Create user: Jenkins
+useradd -d /var/lib/jenkins jenkins
+passwd jenkins
+
+-- Create SSH key for user Jenkins
+su - jenkins
+ssh-keygen -t rsa -C "Jenkins Agent SSH key"
+
+-- Work with SSH key
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+
+Hint: Copy the PRIVATE Key to your Host Machine (win, linux, mac)
+
+@Jenkins GUI
+-- Add new Node
+Main Menu > Magane Jenkins >  Manage Nodes > 
+1.)
+  name: jankins-Slave
+  type: Pemanent Agent
+
+2.)
+  Description: My .... Jenkins Slave
+  Remote dir: /var/lib/jenkins
+  Lable: slave
+  Launch: via SSH
+  Host: 192.168.56.20
+
+  Credentials:
+    Domain: Global
+    Kind: SSH user with key
+    Scope: Global
+    ID: jenkins_slave_ssh
+    Desc: SSSH Key for jenkins slave
+    Username: jenkins
+    PKey: Enter directly (hint: paste private key)
+
+  Host Key Ver Strat: No verif....
+
