@@ -4,10 +4,7 @@
 #yum install gcc-c++ make nodejs -y
 #yum install -y nodejs
 # --- ezt betettem kézire @ slave
-node index.js
-#cd /vagrant_data
-# sudo npm install -g pm2
+#node index.js
+pwd
 #npm install supervisor -g
 #supervisor index.js &
-#pm2 start index.js --watch
-echo "index.js is implemented"
