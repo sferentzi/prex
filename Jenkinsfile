@@ -38,6 +38,14 @@ pipeline {
                 sh 'bash node.sh'
             }
         }
+        stage('Check test-code for server-tes  @ Master') {
+            agent { 
+                label 'master'
+            }
+            steps {
+                sh 'shellcheck test_server.sh'
+            }
+        }
         stage('Check node.js server  @ Jenkins') {
             agent { 
                 label 'master'
