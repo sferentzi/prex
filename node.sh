@@ -6,5 +6,5 @@
 # --- ezt betettem kézire @ slave
 #node index.js
 pwd
-npm install supervisor -g
-#supervisor index.js &
+sudo npm install supervisor -g
+sudo supervisor index.js &
