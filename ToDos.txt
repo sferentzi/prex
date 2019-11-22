@@ -116,3 +116,5 @@ Repositories:
     User: git
     ID: sferentzi_git
     Dec: git to repo
+
+!!! Poll SCM: * * * * *
