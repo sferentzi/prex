@@ -2,7 +2,9 @@ pipeline {
     agent none
     stages {
         stage('Hello @ Jenkis') {
-            agent any
+            agent { 
+                label 'master'
+            }
             steps {
                 sh 'echo "Hello DevOps"'
                 sh '''
