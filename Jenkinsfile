@@ -38,5 +38,13 @@ pipeline {
                 sh 'bash node.sh'
             }
         }
+        stage('Check node.js server  @ Jenkins') {
+            agent { 
+                label 'master'
+            }
+            steps { 
+                sh 'curl http://192.168.56.20:6543/'
+            }
+        }
     }
 }
