@@ -10,5 +10,5 @@ then
     # if the keyword is in the content
     echo " The webserver is working fine."
 else
-    echo "!!! Error !!!"
+    echo "!!! Error !!! Something went wrong. Please contact the Administrator... If any..."
 fi
