@@ -19,7 +19,7 @@ pipeline {
                 sh 'echo "Do Shellcheck"'
                 sh 'shellcheck -V'
                 sh 'pwd'
-                sh 'shellcheck test.sh'
+                sh 'shellcheck node.sh'
             }
         }
         stage('Hello @ Slave') {

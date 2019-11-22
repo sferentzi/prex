@@ -59,6 +59,18 @@ yum install git
 @@ Install git!
 yum install git -y
 
+@@ firewall
+-- set firewall
+-- Set firewall
+firewall-cmd --add-port=6453/tcp --permanent
+firewall-cmd --reload
+
+@@ nodejs
+-- install nodejs
+curl -sL https://rpm.nodesource.com/setup_10.x | sudo -E bash -
+yum install gcc-c++ make nodejs -y
+yum install -y nodejs
+
 @@Create VM Jenkins Agent ---------------------------------
 
 @Slave -----------------------------------------------
