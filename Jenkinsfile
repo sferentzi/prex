@@ -44,6 +44,7 @@ pipeline {
             }
             steps { 
                 sh 'curl http://192.168.56.20:6543/'
+                sh 'bash test_server.sh'
             }
         }
     }

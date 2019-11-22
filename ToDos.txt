@@ -55,6 +55,12 @@ yum install git
 
 #######################################################################################################################
 -------> SLAVE VM <-----------------
+@Preapare VM
+-- Set IP Addpress
+192.168.56.20
+
+-- Set Hostname
+jenkins-student-slave
 
 @@ Install git!
 yum install git -y
