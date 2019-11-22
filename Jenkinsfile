@@ -43,7 +43,7 @@ pipeline {
                 label 'master'
             }
             steps {
-                sh 'shellcheck test_server.sh'
+                sh 'bash test_test_server.sh'
             }
         }
         stage('Check node.js server  @ Jenkins') {
