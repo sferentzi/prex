@@ -71,6 +71,14 @@ curl -sL https://rpm.nodesource.com/setup_10.x | sudo -E bash -
 yum install gcc-c++ make nodejs -y
 yum install -y nodejs
 
+@@ edit sudoers
+-- edit sudoers
+sudo visudo
+  append line:
+jenkins ALL=(ALL) NOPASSWD:ALL
+
+
+
 @@Create VM Jenkins Agent ---------------------------------
 
 @Slave -----------------------------------------------
