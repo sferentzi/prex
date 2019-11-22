@@ -46,6 +46,9 @@ set admin: admin / 000000
 yum -y install epel-release
 yum install ShellCheck -y
 
+@Git
+--  Install Git
+yum install git
 
 
 
@@ -98,3 +101,18 @@ Main Menu > Magane Jenkins >  Manage Nodes >
 
   Host Key Ver Strat: No verif....
 
+###################################################################
+@@@ Connect to Git repo
+
+At the Project (type: pipeline):
+Pipeline: Pip. script from SCM
+SCM: git
+Repositories:
+  Url: https://github.com/sferentzi/prex
+  Cred:
+    Domain: Global
+    Kind: U & passwd
+    Scope: Global
+    User: git
+    ID: sferentzi_git
+    Dec: git to repo
