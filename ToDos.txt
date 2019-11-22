@@ -85,7 +85,7 @@ jenkins ALL=(ALL) NOPASSWD:ALL
 
 
 
-@@Create VM Jenkins Agent ---------------------------------
+@@Create Jenkins Agent ---------------------------------
 
 @Slave -----------------------------------------------
 -- Install Java
