@@ -1,7 +1,7 @@
 pipeline {
     agent none
     stages {
-        stage('Jenkins Master') {
+        stage('Hello @ Jenkis') {
             agent any
             steps {
                 sh 'echo "Hello DevOps"'
@@ -11,7 +11,7 @@ pipeline {
                 '''
             }
         }
-        stage('ShellCheck @ Master') {
+        stage('ShellCheck @ Jenkins') {
             agent { 
                 label 'master'
             }
@@ -22,12 +22,20 @@ pipeline {
                 sh 'shellcheck test.sh'
             }
         }
-        stage('Hello on Slave') {
+        stage('Hello @ Slave') {
             agent { 
                 label 'slave'
             }
             steps { 
                 sh 'echo "Hello from Jennkins Master ons Jenkins Slave" > hello.txt'
+            }
+        }
+        stage('Deploy index.js @ Slave') {
+            agent { 
+                label 'slave'
+            }
+            steps { 
+                sh 'bash node.sh'
             }
         }
     }
