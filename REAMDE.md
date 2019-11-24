@@ -2,7 +2,7 @@
 
 Jenkinsfile stages
 stage 'Hello'
-Stage 'AgentWork'
+Stage 'AgentWo'
 
 
 Users on computers
@@ -12,3 +12,5 @@ Users on computers
 @Slave
 - root / 000000
 - jenkins / 000000
+
+# A *Jenkins* VM előkészítése
