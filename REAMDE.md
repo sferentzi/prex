@@ -6,7 +6,7 @@
 See System Overview below
 ![Sys Overview](image.png "Sys Overview")
 
-## Infrastructure for the project
+## Infrastructure of the project
 - Server for running Jenkins VM, running CentOS 7, (named: jenkins-master), Master
 - Server for running NodeJs VM, running CentOS 7, (named: jenkins-student-slave), Slave
 - GitHub project (named: DevOps Exam)
@@ -19,7 +19,7 @@ See System Overview below
 
 ## Content of GitHub repository (file list)
 - image.png (System Overview Diagram)
-- index.js (NodeJs file, will be deployed)
+- index.js (NodeJs file, will be deployed, runs the NodJs server)
 - Jenkinsfile (instructions for the Jenkins server)
 - node.sh (Bash script, for deploying index.js)
 - README.md (this file)
@@ -107,20 +107,20 @@ hostnamectl set-hostname jenkins-student-slave
 yum install git -y
 ~~~
 
-## set firewall
+## Set firewall
 ~~~bash
 firewall-cmd --add-port=6453/tcp --permanent
 firewall-cmd --reload
 ~~~
 
-## install nodejs
+## Install NodeJs
 ~~~bash
 curl -sL https://rpm.nodesource.com/setup_10.x | sudo -E bash -
 yum install gcc-c++ make nodejs -y
 yum install -y nodejs
 ~~~
 
-## edit sudoers
+## Edit sudoers
 ~~~bash
 sudo visudo
 ~~~
