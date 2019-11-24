@@ -1,7 +1,10 @@
-# README file for project: *prex*
+# README file for project: *DevOps Exam*
 
 ## Goal of the project
-- To build an automatic test enviroment for a deveopler, developing a NodeJs server. 
+- To build an automatic test enviroment for a deveopler, developing a NodeJs server.
+
+See System Overview below
+![Sys Overview](sys-overview.svg "Sys Overview")
 
 ## Infrastructure for the project
 - Server for running Jenkins VM, running CentOS 7, (named: jenkins-master), Master
@@ -19,6 +22,7 @@
 - Jenkinsfile (instructions for the Jenkins server)
 - node.sh (Bash script, for deploying index.js)
 - README.md (this file)
+- sys-overview.svg (System Overview Diagram)
 - test_server.sh (Bash script, testing the server state)
 - test_test_server.sh (Bash script, testing the server testing script)
 - test.sh (will be not used, test file during development)
