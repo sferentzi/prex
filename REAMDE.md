@@ -4,7 +4,7 @@
 - To build an automatic test enviroment for a deveopler, developing a NodeJs server.
 
 See System Overview below
-![Sys Overview](sys-overview.svg "Sys Overview")
+![Sys Overview](image.png "Sys Overview")
 
 ## Infrastructure for the project
 - Server for running Jenkins VM, running CentOS 7, (named: jenkins-master), Master
@@ -18,11 +18,11 @@ See System Overview below
 - If any error occurs, the system has to present a human readeble error message.
 
 ## Content of GitHub repository (file list)
+- image.png (System Overview Diagram)
 - index.js (NodeJs file, will be deployed)
 - Jenkinsfile (instructions for the Jenkins server)
 - node.sh (Bash script, for deploying index.js)
 - README.md (this file)
-- sys-overview.svg (System Overview Diagram)
 - test_server.sh (Bash script, testing the server state)
 - test_test_server.sh (Bash script, testing the server testing script)
 - test.sh (will be not used, test file during development)
