@@ -28,6 +28,8 @@ See System Overview below
 - test.sh (will be not used, test file during development)
 - ToDos.txt (the raw instuctios of this README.md document)
 
+# Instructions, setting up the *whole System*
+
 # Prepare *Jenkins* VM
 
 ## Set IP Addpress to:
@@ -47,37 +49,37 @@ yum install ShellCheck -y
 ~~~
 
 ##  Install Git
-~~~
+~~~bash
 yum install git
 ~~~
 
 ## Install Java
-~~~
+~~~bash
 yum install java-1.8.0-openjdk-devel -y
 ~~~
 
 ## Install Jenkins
-~~~
+~~~bash
 curl --silent --location http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo | sudo tee /etc/yum.repos.d/jenkins.repo
 rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
 yum install jenkins -y
 ~~~
 
 ## Start Jenkins
-~~~
+~~~bash
 systemctl start jenkins
 systemctl status jenkins
 systemctl enable jenkins
 ~~~
 
 ## Check Jenkins
-~~~
+~~~bash
 ss -tpln | grep java
 ~~~
 (Hint: Port number: 8080)
 
 ## Set firewall
-~~~
+~~~bash
 firewall-cmd --add-port=8080/tcp --permanent
 firewall-cmd --reload
 ~~~
@@ -96,30 +98,30 @@ set admin: admin / 000000
 ~~~
 
 ## Set Hostname to *jenkins-student-slave*
-~~~
+~~~bash
 hostnamectl set-hostname jenkins-student-slave
 ~~~
 
 ## Install Git
-~~~
+~~~bash
 yum install git -y
 ~~~
 
 ## set firewall
-~~~
+~~~bash
 firewall-cmd --add-port=6453/tcp --permanent
 firewall-cmd --reload
 ~~~
 
 ## install nodejs
-~~~
+~~~bash
 curl -sL https://rpm.nodesource.com/setup_10.x | sudo -E bash -
 yum install gcc-c++ make nodejs -y
 yum install -y nodejs
 ~~~
 
 ## edit sudoers
-~~~
+~~~bash
 sudo visudo
 ~~~
   append line:  
@@ -131,24 +133,24 @@ jenkins ALL=(ALL) NOPASSWD:ALL
 ## Do this steps on your *Slave* VM
 
 ## Install Java
-~~~
+~~~bash
 yum install java-1.8.0-openjdk-devel -y
 ~~~
 
 ## Create user: Jenkins
-~~~
+~~~bash
 useradd -d /var/lib/jenkins jenkins
 passwd jenkins
 ~~~
 
 ## Create SSH key for user Jenkins
-~~~
+~~~bash
 su - jenkins
 ssh-keygen -t rsa -C "Jenkins Agent SSH key"
 ~~~
 
 ## Work with SSH key
-~~~
+~~~bash
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
 ~~~
