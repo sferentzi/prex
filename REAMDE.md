@@ -1,7 +1,7 @@
 # README file for project: *DevOps Exam*
 
 ## Goal of the project
-- To build an automatic test enviroment for a developer, developing a NodeJs server.
+- To build an automatic test enviroment for a developer, developing a NodeJs server and testing code and code changes automatically.
 
 See System Overview below  
 
