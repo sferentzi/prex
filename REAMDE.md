@@ -1,21 +1,22 @@
 # README file for project: *DevOps Exam*
 
 ## Goal of the project
-- To build an automatic test enviroment for a deveopler, developing a NodeJs server.
+- To build an automatic test enviroment for a developer, developing a NodeJs server.
 
-See System Overview below
+See System Overview below  
+
 ![Sys Overview](image.png "Sys Overview")
 
 ## Infrastructure of the project
 - Server for running Jenkins VM, running CentOS 7, (named: jenkins-master), Master
 - Server for running NodeJs VM, running CentOS 7, (named: jenkins-student-slave), Slave
 - GitHub project (named: DevOps Exam)
-- A computer, where the Developer Works. (It can run any operation system, such as MS Windos, Linus, Mac OS)
+- A computer, where the Developer Works. (It can run any operation system, such as MS Windows, Linux, Mac OS)
 
-## The project is succefull if
+## The project is successful if
 - The developer changes the program code, and pushes to the GitHub repository.
-- After that (~ 1-1,5 min later) the changed code should be running on the NodeJs server.
-- If any error occurs, the system has to present a human readeble error message.
+- After that (~ 1-1,5 min. later) the changed code should be running on the NodeJs server.
+- If any error occurs, the system has to present human readeble error messages.
 
 ## Content of GitHub repository (file list)
 - image.png (System Overview Diagram)
@@ -26,13 +27,13 @@ See System Overview below
 - test_server.sh (Bash script, testing the server state)
 - test_test_server.sh (Bash script, testing the server testing script)
 - test.sh (will be not used, test file during development)
-- ToDos.txt (the raw instuctios of this README.md document)
+- ToDos.txt (the raw instuctions of this README.md document)
 
 # Instructions, setting up the *whole System*
 
 # Prepare *Jenkins* VM
 
-## Set IP Addpress to:
+## Set IP Address to:
 ~~~
 192.168.56.10
 ~~~
@@ -42,7 +43,7 @@ See System Overview below
 hostnamectl set-hostname jenkins-master
 ~~~
 
-## Instal Shellcheck
+## Install Shellcheck
 ~~~bash
 yum -y install epel-release
 yum install ShellCheck -y
@@ -78,17 +79,17 @@ ss -tpln | grep java
 ~~~
 (Hint: Port number: 8080)
 
-## Set firewall
+## Set Firewall
 ~~~bash
 firewall-cmd --add-port=8080/tcp --permanent
 firewall-cmd --reload
 ~~~
 
-## Start browser
+## Start your favourite Browser
 192.168.56.10:8080  
-cat password  
-install plugins  
-set admin: admin / 000000  
+Cat password, as suggested  
+Install plugins  
+Set admin: admin / 000000  
 
 # Prepare *Slave* VM
 
@@ -107,7 +108,7 @@ hostnamectl set-hostname jenkins-student-slave
 yum install git -y
 ~~~
 
-## Set firewall
+## Set Firewall
 ~~~bash
 firewall-cmd --add-port=6453/tcp --permanent
 firewall-cmd --reload
@@ -124,7 +125,7 @@ yum install -y nodejs
 ~~~bash
 sudo visudo
 ~~~
-  append line:  
+  Append line:  
 ~~~
 jenkins ALL=(ALL) NOPASSWD:ALL
 ~~~
@@ -155,19 +156,19 @@ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
 ~~~
 
-Hint: Copy the PRIVATE Key to your Host Machine (win, linux, mac)  
+Hint: Copy the PRIVATE Key to your Host Machine (MS Windows, Linux, Mac OS)  
 
 ## Do this on the *Jenkins* GUI
 ### Add new Node
-Main Menu > Magane Jenkins >  Manage Nodes >   
+Main Menu > Manage Jenkins >  Manage Nodes >   
 1.)  
-  - name: jankins-Slave  
-  - type: Pemanent Agent  
+  - Name: jenkins-slave  
+  - Type: Pemanent Agent  
 
 2.)  
   - Description: My .... Jenkins Slave  
   - Remote dir: /var/lib/jenkins  
-  - Lable: slave  
+  - Label: slave  
   - Launch: via SSH  
   - Host: 192.168.56.20   
   
@@ -176,27 +177,30 @@ Credentials:
   - Kind: SSH user with key  
   - Scope: Global  
   - ID: jenkins_slave_ssh  
-  - Desc: SSSH Key for jenkins slave  
+  - Desc.: SSSH Key for jenkins slave  
   - Username: jenkins  
   - PKey: Enter directly (hint: paste private key)  
 
-  - Host Key Ver Strat: No verif....  
+  - Host Key Ver. Strat.: No verif....  
 
 ### Add new Node
-Connect to Git repo  
+Connect to Git repository  
 
 - At the Project (type: pipeline):  
 - Pipeline: Pip. script from SCM  
 - SCM: git  
 - Repositories:  
 - Url: https://github.com/sferentzi/DevOps_Exam
-- Cred:  
+- Cred.:  
 - Domain: Global  
 - Kind: U & passwd  
 - Scope: Global  
 - User: git  
 - ID: sferentzi_git  
-- Dec: git to repo  
+- Desc.: git to repo  
 
 ### Important setting
-- set Poll SCM: * * * * *  
+- set Poll SCM: * * * * *
+
+# Afterword
+Thanks for reading this document. Hope, you find it useful. If you have any questions, don't hesitate to contact me. 
